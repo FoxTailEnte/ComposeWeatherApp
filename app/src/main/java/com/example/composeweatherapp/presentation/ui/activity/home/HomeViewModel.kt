@@ -1,6 +1,5 @@
 package com.example.composeweatherapp.presentation.ui.activity.home
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.composeweatherapp.data.network.utils.WorkResult
@@ -13,15 +12,15 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val homeUseCase: com.example.composeweatherapp.domain.HomeUseCase
+    private val homeUseCase: HomeUseCase
 ) : ViewModel() {
     val state = MutableStateFlow<String?>("Nothing")
 
     fun getData() {
         viewModelScope.launch(Dispatchers.IO) {
             val i = homeUseCase()
-            if(i is com.example.composeweatherapp.data.network.utils.WorkResult.SuccessResult)
-                i.data.location.name
+            if(i is WorkResult.SuccessResult)
+                state.emit(i.data.location.name)
         }
     }
 }

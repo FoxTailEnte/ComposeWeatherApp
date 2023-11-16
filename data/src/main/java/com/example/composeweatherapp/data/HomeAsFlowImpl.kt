@@ -3,7 +3,6 @@ package com.example.composeweatherapp.data
 import com.example.composeweatherapp.data.network.api.Api
 import com.example.composeweatherapp.data.network.models.Tyda
 import com.example.composeweatherapp.data.network.utils.WorkResult
-import retrofit2.Response
 import javax.inject.Inject
 
 class HomeAsFlowImpl @Inject constructor(

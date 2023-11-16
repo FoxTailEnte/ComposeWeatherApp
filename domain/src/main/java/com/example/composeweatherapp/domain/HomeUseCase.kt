@@ -7,8 +7,8 @@ import javax.inject.Inject
 
 
 class HomeUseCase @Inject constructor(
-    private val homeAsFlow: com.example.composeweatherapp.data.HomeAsFlow
+    private val homeAsFlow: HomeAsFlow
 ){
-    suspend operator fun invoke(): com.example.composeweatherapp.data.network.utils.WorkResult<com.example.composeweatherapp.data.network.models.Tyda> = homeAsFlow.getHomeData()
+    suspend operator fun invoke(): WorkResult<Tyda> = homeAsFlow.getHomeData()
 
 }
