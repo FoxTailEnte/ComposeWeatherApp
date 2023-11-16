@@ -13,14 +13,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val homeUseCase: HomeUseCase
+    private val homeUseCase: com.example.composeweatherapp.domain.HomeUseCase
 ) : ViewModel() {
     val state = MutableStateFlow<String?>("Nothing")
 
     fun getData() {
         viewModelScope.launch(Dispatchers.IO) {
             val i = homeUseCase()
-            if(i is WorkResult.SuccessResult)
+            if(i is com.example.composeweatherapp.data.network.utils.WorkResult.SuccessResult)
                 i.data.location.name
         }
     }

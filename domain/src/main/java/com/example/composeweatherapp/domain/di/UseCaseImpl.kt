@@ -14,5 +14,6 @@ import dagger.hilt.components.SingletonComponent
 class UseCaseImpl {
 
     @Provides
-    fun provideHomeInfoAsFlow(api: Api): HomeAsFlow = HomeAsFlowImpl(api)
+    fun provideHomeInfoAsFlow(api: com.example.composeweatherapp.data.network.api.Api): com.example.composeweatherapp.data.HomeAsFlow =
+        com.example.composeweatherapp.data.HomeAsFlowImpl(api)
 }
