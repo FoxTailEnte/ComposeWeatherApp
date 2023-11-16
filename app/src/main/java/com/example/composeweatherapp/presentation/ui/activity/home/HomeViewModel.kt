@@ -2,8 +2,8 @@ package com.example.composeweatherapp.presentation.ui.activity.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.composeweatherapp.data.network.utils.WorkResult
 import com.example.composeweatherapp.domain.HomeUseCase
+import com.example.composeweatherapp.domain.utils.HandleResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -18,9 +18,16 @@ class HomeViewModel @Inject constructor(
 
     fun getData() {
         viewModelScope.launch(Dispatchers.IO) {
-            val i = homeUseCase()
-            if(i is WorkResult.SuccessResult)
-                state.emit(i.data.location.name)
+                setState(homeUseCase())
+        }
+    }
+
+    private suspend fun setState(response: HandleResponse) {
+        when (response) {
+            is HandleResponse.Succes -> state.emit(response.data.location.name)
+            is HandleResponse.Empty -> state.emit("")
+            is HandleResponse.Error -> state.emit(response.message)
+            is HandleResponse.Fail -> Unit
         }
     }
 }

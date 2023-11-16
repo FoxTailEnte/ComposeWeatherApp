@@ -1,6 +1,6 @@
 package com.example.composeweatherapp.data.di
 
-import com.example.composeweatherapp.data.HomeAsFlow
+import com.example.composeweatherapp.domain.HomeAsFlow
 import com.example.composeweatherapp.data.HomeAsFlowImpl
 import com.example.composeweatherapp.data.network.api.Api
 import dagger.Module

@@ -2,12 +2,12 @@ package com.example.composeweatherapp.data.network.models
 
 import com.google.gson.annotations.SerializedName
 
-data class Tyda(
+data class WeatherEntity(
     @SerializedName("location")
-    val location: Location
+    val location: LocationEntity
 )
 
-data class Location(
+data class LocationEntity(
     @SerializedName("name")
     val name: String = "nothing"
 )

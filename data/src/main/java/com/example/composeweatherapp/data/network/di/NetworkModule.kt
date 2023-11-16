@@ -1,6 +1,6 @@
 package com.example.composeweatherapp.data.network.di
 
-import com.example.composeweatherapp.data.network.utils.ResultAdapterFactory
+import com.example.composeweatherapp.data.network.adapter.ResultAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

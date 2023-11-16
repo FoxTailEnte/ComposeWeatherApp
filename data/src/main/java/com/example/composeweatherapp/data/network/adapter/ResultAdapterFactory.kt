@@ -1,5 +1,6 @@
-package com.example.composeweatherapp.data.network.utils
+package com.example.composeweatherapp.data.network.adapter
 
+import com.example.composeweatherapp.data.network.utils.WorkResult
 import retrofit2.Call
 import retrofit2.CallAdapter
 import retrofit2.Retrofit
