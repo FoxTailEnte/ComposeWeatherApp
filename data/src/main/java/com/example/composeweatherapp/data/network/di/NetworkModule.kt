@@ -1,5 +1,8 @@
 package com.example.composeweatherapp.data.network.di
 
+import android.app.Application
+import android.content.Context
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.example.composeweatherapp.data.network.adapter.ResultAdapterFactory
 import dagger.Module
 import dagger.Provides
@@ -8,13 +11,19 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
 
     @Provides
-    fun provideOkhttpClient(): OkHttpClient = OkHttpClient.Builder()
+    @Singleton
+    fun provideContext(application: Application): Context = application
+
+    @Provides
+    fun provideOkhttpClient(context: Context): OkHttpClient = OkHttpClient.Builder()
+        .addInterceptor(ChuckerInterceptor.Builder(context).build())
         .build()
 
     @Provides

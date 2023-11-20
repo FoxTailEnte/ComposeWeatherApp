@@ -66,6 +66,13 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
 
+    //ComposeLoadImage
+    implementation("io.coil-kt:coil-compose:2.0.0-rc01")
+
+    //Pager
+    implementation ("com.google.accompanist:accompanist-pager:0.19.0")
+    implementation ("com.google.accompanist:accompanist-pager-indicators:0.19.0")
+
     //Hilt
     implementation ("com.google.dagger:hilt-android:2.45")
     kapt ("com.google.dagger:hilt-compiler:2.45")

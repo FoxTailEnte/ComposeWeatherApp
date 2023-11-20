@@ -4,10 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class WeatherEntity(
     @SerializedName("location")
-    val location: LocationEntity
-)
-
-data class LocationEntity(
-    @SerializedName("name")
-    val name: String = "nothing"
+    val location: LocationEntity,
+    @SerializedName("current")
+    val current: CurrentEntity,
+    @SerializedName("forecast")
+    val forecast: ForecastEntity
 )

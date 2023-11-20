@@ -1,6 +1,6 @@
-package com.example.composeweatherapp.data.di
+package com.example.composeweatherapp.data.network.di
 
-import com.example.composeweatherapp.domain.HomeAsFlow
+import com.example.composeweatherapp.data.HomeAsFlow
 import com.example.composeweatherapp.data.HomeAsFlowImpl
 import com.example.composeweatherapp.data.network.api.Api
 import dagger.Module
@@ -10,7 +10,7 @@ import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(SingletonComponent::class)
-class HomeDataModule {
+class BaseModel {
 
     @Provides
     fun provideHomeInfoAsFlow(api: Api): HomeAsFlow = HomeAsFlowImpl(api)

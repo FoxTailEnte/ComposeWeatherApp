@@ -1,7 +1,7 @@
 package com.example.composeweatherapp.domain.di
 
 
-import com.example.composeweatherapp.domain.HomeAsFlow
+import com.example.composeweatherapp.data.HomeAsFlow
 import com.example.composeweatherapp.domain.HomeUseCase
 import dagger.Module
 import dagger.Provides
