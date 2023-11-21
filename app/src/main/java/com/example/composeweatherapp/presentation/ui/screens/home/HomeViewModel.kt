@@ -22,7 +22,7 @@ class HomeViewModel @Inject constructor(
     val searchState = MutableStateFlow(false)
     private val error = MutableStateFlow<String?>(null)
 
-    fun getData(city: String?) {
+    fun getData(city: String = "Rostov-On-Don") {
         viewModelScope.launch(Dispatchers.IO) {
             setState(homeUseCase(city))
         }

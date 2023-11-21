@@ -19,6 +19,7 @@ class HomeActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        vm.getData()
         setContent {
             Image(
                 painter = painterResource(id = R.drawable.weather_pixel),
